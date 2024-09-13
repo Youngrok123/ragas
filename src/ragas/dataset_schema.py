@@ -87,7 +87,7 @@ class EvaluationDataset(BaseModel):
             for sample in rows:
                 for item in sample["user_input"]:
                     if not isinstance(item["content"], str):
-                        item["content"] = json.dumps(item["content"])
+                        item["content"] = json.dumps(item["content"], ensure_ascii=False)
 
         return Dataset.from_list(rows)
 
